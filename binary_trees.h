@@ -97,6 +97,9 @@ binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 /* 24. Is BST */
 int binary_tree_is_bst(const binary_tree_t *tree);
 
+/* 25. BST insert */
+bst_t *bst_insert(bst_t **tree, int value);
+
 /* Provided print function (for visualization) */
 void binary_tree_print(const binary_tree_t *tree);
 
