@@ -13,12 +13,14 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	if (tree == NULL)
 		return (0);
 
+	/* حساب ارتفاع الفروع فقط إذا موجودة */
 	if (tree->left != NULL)
 		left_height = 1 + binary_tree_height(tree->left);
 
 	if (tree->right != NULL)
 		right_height = 1 + binary_tree_height(tree->right);
 
+	/* الارتفاع هو الأكبر بين الأيسر واليمن */
 	return (left_height > right_height ? left_height : right_height);
 }
 
