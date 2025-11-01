@@ -15,11 +15,14 @@
  */
 typedef struct binary_tree_s
 {
-	int n;
-	struct binary_tree_s *parent;
-	struct binary_tree_s *left;
-	struct binary_tree_s *right;
+    int n;
+    struct binary_tree_s *parent;
+    struct binary_tree_s *left;
+    struct binary_tree_s *right;
 } binary_tree_t;
+
+/* Alias for BST nodes */
+typedef struct binary_tree_s bst_t;
 
 /* 0. New node */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
@@ -80,7 +83,7 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 
 /* 19. Lowest common ancestor */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
-	const binary_tree_t *second);
+                                     const binary_tree_t *second);
 
 /* 20. Level-order traversal */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
