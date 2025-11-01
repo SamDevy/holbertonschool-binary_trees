@@ -65,7 +65,6 @@ size_t binary_tree_nodes(const binary_tree_t *tree);
 
 /* 14. Balance factor */
 int binary_tree_balance(const binary_tree_t *tree);
-size_t binary_tree_height(const binary_tree_t *tree);
 
 /* 15. Is full */
 int binary_tree_is_full(const binary_tree_t *tree);
@@ -81,11 +80,15 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 
 /* 19. Lowest common ancestor */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+	const binary_tree_t *second);
 
 /* 20. Level-order traversal */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
-				     const binary_tree_t *second);
-/* Provided print function (optional, for visualization) */
+
+/* 21. Is complete */
+int binary_tree_is_complete(const binary_tree_t *tree);
+
+/* Provided print function (for visualization) */
 void binary_tree_print(const binary_tree_t *tree);
 
 #endif /* BINARY_TREES_H */
