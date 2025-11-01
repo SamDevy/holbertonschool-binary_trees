@@ -81,6 +81,9 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 
 /* 19. Lowest common ancestor */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+
+/* 20. Level-order traversal */
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 				     const binary_tree_t *second);
 /* Provided print function (optional, for visualization) */
 void binary_tree_print(const binary_tree_t *tree);
