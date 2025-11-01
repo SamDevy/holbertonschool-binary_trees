@@ -2,12 +2,14 @@
 #include <stdlib.h>
 
 /**
- * binary_tree_levelorder - goes through a binary tree using level-order traversal
- * @tree: pointer to the root node of the tree to traverse
- * @func: pointer to a function to call for each node
+ * binary_tree_levelorder - Goes through a binary tree
+ *                          using level-order traversal
+ * @tree: Pointer to the root node of the tree to traverse
+ * @func: Pointer to a function to call for each node
  *
- * Description: Uses a queue (FIFO) to traverse the tree level by level.
- * If tree or func is NULL, the function does nothing.
+ * Description: Uses a queue (FIFO) to traverse the tree
+ * level by level. If tree or func is NULL, the function
+ * does nothing.
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
@@ -17,8 +19,7 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 	if (tree == NULL || func == NULL)
 		return;
 
-	/* Allocate a dynamic queue for BFS traversal */
-	size = 1024; /* Safe default size for most trees */
+	size = 1024; /* reasonable fixed queue size */
 	queue = malloc(sizeof(binary_tree_t *) * size);
 	if (queue == NULL)
 		return;
