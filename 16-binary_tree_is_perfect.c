@@ -1,47 +1,24 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_depth - measures the depth of a node
- * @tree: pointer to the node
+ * binary_tree_height - measures the height of a binary tree
+ * @tree: pointer to the root node
  *
- * Return: depth, or 0 if tree is NULL
+ * Return: height of the tree, or 0 if tree is NULL
  */
-size_t binary_tree_depth(const binary_tree_t *tree)
+size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t depth = 0;
+	size_t left_height, right_height;
 
 	if (!tree)
 		return (0);
 
-	while (tree->parent)
-	{
-		depth++;
-		tree = tree->parent;
-	}
-	return (depth);
-}
+	left_height = binary_tree_height(tree->left);
+	right_height = binary_tree_height(tree->right);
 
-/**
- * perfect_helper - checks recursively if tree is perfect
- * @tree: pointer to the node
- * @depth: expected depth of leaves
- * @level: current level of node
- *
- * Return: 1 if perfect, 0 otherwise
- */
-int perfect_helper(const binary_tree_t *tree, size_t depth, size_t level)
-{
-	if (!tree)
-		return (1);
-
-	if (!tree->left && !tree->right)
-		return (depth == level);
-
-	if (!tree->left || !tree->right)
-		return (0);
-
-	return (perfect_helper(tree->left, depth, level + 1) &&
-		perfect_helper(tree->right, depth, level + 1));
+	if (left_height > right_height)
+		return (left_height + 1);
+	return (right_height + 1);
 }
 
 /**
@@ -52,11 +29,28 @@ int perfect_helper(const binary_tree_t *tree, size_t depth, size_t level)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	size_t depth;
+	size_t left_height, right_height;
 
 	if (!tree)
 		return (0);
 
-	depth = binary_tree_depth(tree->left ? tree->left : tree->right);
-	return (perfect_helper(tree, depth, 0));
+	/* Leaf node */
+	if (!tree->left && !tree->right)
+		return (1);
+
+	/* Node has only one child -> not perfect */
+	if (!tree->left || !tree->right)
+		return (0);
+
+	/* Get height of left and right subtrees */
+	left_height = binary_tree_height(tree->left);
+	right_height = binary_tree_height(tree->right);
+
+	/* Both heights must be equal and subtrees must be perfect */
+	if (left_height == right_height &&
+	    binary_tree_is_perfect(tree->left) &&
+	    binary_tree_is_perfect(tree->right))
+		return (1);
+
+	return (0);
 }
