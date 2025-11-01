@@ -34,8 +34,9 @@ bst_t *bst_insert(bst_t **tree, int value)
 			return (NULL); /* Duplicate value */
 	}
 
+	/* Allocate new node */
 	new_node = binary_tree_node(parent, value);
-	if (!new_node)
+	if (!new_node) /* malloc failed */
 		return (NULL);
 
 	if (value < parent->n)
