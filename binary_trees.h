@@ -103,6 +103,9 @@ int binary_tree_is_bst(const binary_tree_t *tree);
 /* 25. BST insert */
 bst_t *bst_insert(bst_t **tree, int value);
 
+/* 26. Array to BST */
+bst_t *array_to_bst(int *array, size_t size);
+
 /* Provided print function (for visualization) */
 void binary_tree_print(const binary_tree_t *tree);
 
