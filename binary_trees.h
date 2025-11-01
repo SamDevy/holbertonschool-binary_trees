@@ -63,6 +63,10 @@ size_t binary_tree_leaves(const binary_tree_t *tree);
 /* 13. Nodes */
 size_t binary_tree_nodes(const binary_tree_t *tree);
 
+/* 14. Balance factor */
+int binary_tree_balance(const binary_tree_t *tree);
+size_t binary_tree_height(const binary_tree_t *tree);
+
 /* Provided print function (optional, for visualization) */
 void binary_tree_print(const binary_tree_t *tree);
 
