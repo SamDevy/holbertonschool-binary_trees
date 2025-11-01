@@ -70,6 +70,8 @@ size_t binary_tree_height(const binary_tree_t *tree);
 /* 15. Is full */
 int binary_tree_is_full(const binary_tree_t *tree);
 
+/* 16. Is perfect */
+int binary_tree_is_perfect(const binary_tree_t *tree);
 /* Provided print function (optional, for visualization) */
 void binary_tree_print(const binary_tree_t *tree);
 
